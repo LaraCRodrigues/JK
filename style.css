@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar1, a.link-nav{
+    background-color: #aa28b3;
+    padding: 10px 0;
+    max-width: 50%;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 10px ;
+    color: #fff;
+}
+.navbar2{
+    padding: 10px 0;
+    max-width: 50%;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 2px ;
+}
+.navbar2, a.link-subnav{
+    max-width: 50%;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 10px ;
+    color: #122ac5;
+    font-weight: 700;
+}
+nav.navbar ul{
+    list-style: none;
+    
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    justify-content:end;
+    margin-right: 20px;
+}
+nav a.link-nav{
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+
+/* cards */
+
+section > div.container_cards{
+    text-align: left;
+    display: flex;
+    justify-content: center;
+}
+
