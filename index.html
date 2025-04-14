@@ -1,53 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JK - Aluguel de Brinquedos</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JK Festas & Eventos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="imagens/Favicon/favicon-16x16.png" type="image/png">
+
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="navbar1">
-            <ul>
-                <li><a class="link-nav" href="index.html">Home</a></li>
-                <li><a class="link-nav" href="about.html">About</a></li>
-                <li><a class="link-nav" href="contact.html">Contact</a></li>
-            </ul>
+    <header>
+        <div class="logo-container">
+          <h1>JK Festas & Eventos</h1>
+          <p>Transformamos sonhos em momentos inesquecíveis!</p>
         </div>
-      <div class="navbar2">
-        <ul>
-            <li><a class="link-subnav" href="login.html">Login</a></li>
-            <li><a class="link-subnav" href="register.html">Register</a></li>
-        
-            <li><a class="link-subnav" href="register.html">Register</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <h1>Welcome to my website</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-
-    <section>
-        <div class="container_cards">
-            <div class="card-empositorio">
-                <h3>Agendamento</h3>
-                <p>Agende seus pedidos e serviços para suas serviços atravez dos nossos servicos com precos que cabem no seu bolso! </p>
-            </div>
-            
-            <div class="card-empositorio">
-                <h3>Serviços</h3>
-                <p>Agende seus pedidos e serviços para suas serviços atravez dos nossos servicos com precos que cabem no seu bolso! </p>
-            </div>
-            
-            <div class="card-empositorio">
-                <h3>Pedidos</h3>
-                <p>Agende seus pedidos e serviços para suas serviços atravez dos nossos servicos com precos que cabem no seu bolso! </p>
-            </div>
-
+      </header>
+      <nav class="navbar">
+        <div class="menu">
+          <div class="links">
+            <a href="#servicos" class="nav-link">Serviços</a>
+            <a href="#sobre" class="nav-link">Sobre</a>
+            <a href="#contato" class="nav-link">Contato</a>
+          </div>
+          <button class="botao-tema" onclick="alternarTema()">🌙</button>
         </div>
+      </nav>
+      
+      
+      
 
+    <section class="hero">
+        <div>
+            <h2>Organização completa para sua festa</h2>
+            <p>Brinquedos, Lanches e muito mais!</p>
+            <a href="#contato">
+                <button class="btn">Solicite um orçamento</button>
+              </a>        </div>
     </section>
 
+    <section id="servicos" class="section">
+        <h3>Nossos Serviços</h3>
+        <div class="cards">
+            <div class="card">
+                <img src="imagens/jk 2.PNG" alt="Decoração de festa">
+                <h4>Pedidos de lanches</h4>
+                <p>Faça seu pedido de lanches separadamente para sua comemoração.</p>
+            </div>
+            <div class="card">
+                <img src="imagens/jk 1.PNG" alt="Buffet de festa">
+                <h4>Barraquinhas de lanches</h4>
+                <p>Cardápios variados e deliciosos para todos os gostos.</p>
+            </div>
+            <div class="card">
+                <img src="imagens/jk3.png" alt="Brinquedos infláveis">
+                <h4>Brinquedos & Recreação</h4>
+                <p>Alugue nossos brinquedos e deixe sua festa ainda melhor.</p>
+            </div>
+        </div>
+    </section>
+    <section id="sobre" class="section">
+        <h3>Sobre a JK Festas & Eventos</h3>
+        <div class="sobre-container">
+          <img src="imagens/logo.jpg" alt="Logo da JK Festas & Eventos" class="logo-sobre">
+          <div class="texto-sobre">
+            <p>
+              A <strong>JK Festas & Eventos</strong> nasceu com o propósito de transformar momentos especiais em memórias inesquecíveis. Com anos de experiência no mercado de eventos, oferecemos tudo que você precisa para comemorar com estilo, alegria e segurança.
+            </p>
+            <p>
+              Trabalhamos com aluguel de brinquedos, barraquinhas, lanches personalizados, além de uma equipe dedicada para fazer da sua festa um sucesso!
+            </p>
+          </div>
+        </div>
+      </section>
+      
+    <section id="contato" class="section">
+        <h3>Entre em Contato</h3>
+        <p>Preencha o formulário e retornaremos o mais breve possível!</p>
+      
+        <form class="formulario" onsubmit="return validarFormulario()">
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+          <input type="tel" id="telefone" name="telefone" placeholder="Ex: 11999999999" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+          <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
+          <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required />
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+          <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+      
+        <p id="mensagem-sucesso" style="display: none; color: green; margin-top: 20px;">Mensagem enviada com sucesso!</p>
+      </section>
+      
+    <footer>
+        <p>&copy; 2025 JK Festas & Eventos. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        function alternarTema() {
+          const body = document.body;
+          const header = document.querySelector("header");
+          const nav = document.querySelector("nav");
+          const footer = document.querySelector("footer");
+          const botao = document.querySelector(".botao-tema");
+          document.querySelector('#sobre').classList.toggle('tema-escuro');
+
+          body.classList.toggle("tema-escuro");
+          header.classList.toggle("tema-escuro");
+          nav.classList.toggle("tema-escuro");
+          if (footer) footer.classList.toggle("tema-escuro");
+    
+          botao.textContent = body.classList.contains("tema-escuro") ? "☀️" : "🌙";
+        }
+      </script>
 </body>
+
 </html>
