@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Início</title>
+  <link rel="stylesheet" href="introducao.css">
+  <link rel="stylesheet" href="/gerenciamento.css">
+
+</head>
+<body>
+
+  <div class="barra-lateral">
+    <h2>Meu Painel</h2>
+    <ul>
+      <li><a href="introducao.html">🏠 Início</a></li>
+      <li><a href="/Gerenciamento.html">📦 Gerenciamento</a></li>
+    </ul>
+    <button class="botao-tema" id="alternar-tema">Alternar Tema Claro/Escuro</button>
+
+  </div>
+
+  <div class="conteudo">
+    <h1 class="bem-vindo">Bem-vindo ao seu Painel de Controle</h1>
+    <p class="descricao">Aqui você pode gerenciar seus pedidos, configurar alertas e ajustar as preferências do sistema.</p>
+
+    <div class="atalhos">
+      <div class="atalho">
+        <h4>📋 Ver Pedidos</h4>
+        <a href="/Gerenciamento.html">Acessar Gerenciamento</a>
+      </div>
+      <div class="atalho">
+        <h4>📅 Alertas</h4>
+        <a href="/Gerenciamento.html">Ver Alertas Registrados</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    const botaoTema = document.getElementById('alternar-tema');
+    const body = document.body;
+
+    botaoTema.addEventListener('click', () => {
+      body.classList.toggle('escuro');
+      body.classList.toggle('claro');
+    });
+  </script>
+</body>
+</html>
