@@ -81,13 +81,13 @@
         <h3>Entre em Contato</h3>
         <p>Preencha o formulário e retornaremos o mais breve possível!</p>
       
-        <form class="formulario" onsubmit="return validarFormulario()">
+        <form class="formulario" onsubmit="return validarFormulario() "id="form">
           <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
           <input type="tel" id="telefone" name="telefone" placeholder="Ex: 11999999999" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
           <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
           <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required />
           <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
-          <button type="submit" class="btn">Enviar Mensagem</button>
+          <button type="submit" class="btn" value="Enviar" id="button">Enviar Mensagem</button>
         </form>
       
         <p id="mensagem-sucesso" style="display: none; color: green; margin-top: 20px;">Mensagem enviada com sucesso!</p>
@@ -96,6 +96,8 @@
     <footer>
         <p>&copy; 2025 JK Festas & Eventos. Todos os direitos reservados.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="contato.js"></script>
     <script>
         function alternarTema() {
           const body = document.body;
