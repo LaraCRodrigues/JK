@@ -49,13 +49,13 @@ body {
   
 }
 
-.conteudo {
+.conteudo_form {
   margin-left: 220px;
   padding: 40px;
   flex: 1;
 }
 
-.conteudo h1 {
+.conteudo_form h1 {
   margin-bottom: 20px;
 }
 
@@ -116,6 +116,8 @@ body {
 .alerta strong {
   color: #007bff;
 }
+
+
 /* manupulacao javascript */
 body.claro {
     background-color: #f4f4f4;
@@ -157,10 +159,7 @@ body.claro {
     background-color: #555;
   }
 
-  .conteudo {
-    margin-left: 220px;
-    padding: 40px;
-  }
+ /* media queries */
 @media (max-width: 768px) {
   .barra-lateral {
     width: 100%;
@@ -168,7 +167,7 @@ body.claro {
     position: relative;
   }
 
-  .conteudo {
+  .conteudo_form {
     margin-left: 0;
     padding: 20px;
   }
