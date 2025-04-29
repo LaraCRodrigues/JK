@@ -17,7 +17,6 @@ body {
   background: linear-gradient(135deg, #6a5acd, #ff69b4);
   color: white;
   padding: 20px;
-  position: fixed;
   left: 0;
   top: 0;
 }
@@ -50,7 +49,7 @@ body {
 }
 
 .conteudo_form {
-  margin-left: 220px;
+  margin-left: 50px;
   padding: 40px;
   flex: 1;
 }
@@ -158,13 +157,46 @@ body.claro {
   body.escuro .botao-tema:hover {
     background-color: #555;
   }
+.conteudo {
+  padding: 20px;
+}
+
+.atalhos {
+  display: flex;
+  gap: 20px;
+}
+
+/* Centraliza os atalhos no mobile */
+@media (max-width: 768px) {
+  .conteudo {
+    text-align: center;
+  }
+
+  .atalhos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .atalho {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Estilo para os atalhos */
+.conteudo {
+  padding: 20px;
+}
+
+.atalhos {
+  display: flex;
+  gap: 20px;
+}
 
  /* media queries */
 @media (max-width: 768px) {
   .barra-lateral {
-    width: 100%;
-    height: auto;
-    position: relative;
+   display: none;
   }
 
   .conteudo_form {

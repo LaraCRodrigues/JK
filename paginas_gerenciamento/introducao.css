@@ -1,8 +1,4 @@
 
-.conteudo {
-    margin-left: 220px;
-    padding: 40px;
-  }
 
   .bem-vindo {
     font-size: 28px;
@@ -49,3 +45,30 @@
   body.escuro h4 {
     color: black;
   }
+
+
+  .conteudo {
+  padding: 20px;
+}
+
+.atalhos {
+  display: flex;
+  gap: 20px;
+}
+
+/* Centraliza os atalhos no mobile */
+@media (max-width: 768px) {
+  .conteudo {
+    text-align: center;
+  }
+
+  .atalhos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .atalho {
+    width: 100%;
+    max-width: 300px;
+  }
+}
