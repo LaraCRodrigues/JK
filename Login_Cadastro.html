@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login & Cadastro</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Vídeo de fundo */
+    #video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+
+    /* Container central do formulário */
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      max-width: 90vw;
+      transform: translate(-50%, -50%);
+background: rgba(128, 0, 128, 0.6); /* Roxo com transparência */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      color: #fff;
+    }
+
+    /* Título */
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    /* Abas */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 10px 25px;
+      font-weight: 600;
+      background: transparent;
+      border: none;
+      color: #ddd;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .tab.active {
+      color: #fff;
+      border-bottom: 3px solid #3498db;
+    }
+
+    /* Formulários */
+    form {
+      display: none;
+      flex-direction: column;
+    }
+
+    form.active {
+      display: flex;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    input::placeholder {
+      color: #999;
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+  
+    /* Link para alternar formulário */
+    .alternar-form {
+      margin-top: 12px;
+      text-align: center;
+      color: #ddd;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .alternar-form:hover {
+      color: #3498db;
+    }
+
+    /* Responsividade */
+    @media (max-width: 400px) {
+      .container {
+        width: 90vw;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <video id="video-bg" autoplay muted loop playsinline>
+    <source src="Videos/video_aniversario.mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo HTML5.
+  </video>
+
+  <div class="container">
+    <h2>Bem-vindo(a)!</h2>
+
+    <div class="tabs">
+      <button class="tab active" id="tab-login">Login</button>
+      <button class="tab" id="tab-cadastro">Cadastro</button>
+    </div>
+
+    <form id="form-login" class="active" onsubmit="event.preventDefault(); alert('Login enviado!');">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+      <div class="alternar-form" onclick="mostrarCadastro()">Não tem conta? Cadastre-se</div>
+    </form>
+
+    <form id="form-cadastro" onsubmit="event.preventDefault(); alert('Cadastro enviado!');">
+      <input type="text" placeholder="Nome completo" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Senha" required />
+      <input type="password" placeholder="Confirme a senha" required />
+      <button type="submit">Cadastrar</button>
+      <div class="alternar-form" onclick="mostrarLogin()">Já tem conta? Faça login</div>
+    </form>
+  </div>
+
+  <script>
+    const tabLogin = document.getElementById('tab-login');
+    const tabCadastro = document.getElementById('tab-cadastro');
+    const formLogin = document.getElementById('form-login');
+    const formCadastro = document.getElementById('form-cadastro');
+
+    tabLogin.addEventListener('click', mostrarLogin);
+    tabCadastro.addEventListener('click', mostrarCadastro);
+
+    function mostrarLogin() {
+      tabLogin.classList.add('active');
+      tabCadastro.classList.remove('active');
+      formLogin.classList.add('active');
+      formCadastro.classList.remove('active');
+    }
+
+    function mostrarCadastro() {
+      tabCadastro.classList.add('active');
+      tabLogin.classList.remove('active');
+      formCadastro.classList.add('active');
+      formLogin.classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>

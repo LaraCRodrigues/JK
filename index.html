@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -9,29 +8,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="imagens/Favicon/favicon-16x16.png" type="image/png">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-  <header>
-    <div class="logo-container">
-      <h1>JK Festas & Eventos</h1>
-      <p>Transformamos sonhos em momentos inesquecíveis!</p>
-    </div>
-  </header>
+ 
   <nav class="navbar">
     <div class="menu">
+      <h1>JK Festas & Eventos</h1>
       <div class="links">
         <a href="#servicos" class="nav-link">Serviços</a>
         <a href="#sobre" class="nav-link">Sobre</a>
         <a href="#contato" class="nav-link">Contato</a>
+        <a href="#feedbacks" class="nav-link">Feedbacks</a>
       </div>
-      <button class="botao-tema" onclick="alternarTema()">🌙</button>
+      <div class="botoes">
+        <button class="btn-mobile" onclick="abrirModalMenu()">☰</button>
+        <button class="botao-tema" onclick="alternarTema()">🌙</button>
+      <a class="btn-login " href="Login_Cadastro.html">Login & cadastro</a>
+      </div>
+
+    </div>
+    <!-- Modal do menu mobile -->
+    <div class="modal-mobile" id="modalMobile">
+      <div class="modal-conteudo">
+        <button class="fechar-modal" onclick="fecharModalMenu()">✖</button>
+        <a href="#servicos" class="nav-link">Serviços</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#contato" class="nav-link">Contato</a>
+        <a href="#feedbacks" class="nav-link">Feedbacks</a>
+      </div>
     </div>
   </nav>
-
-
-
 
   <section class="apresentacao">
     <div>
@@ -43,79 +51,155 @@
     </div>
   </section>
 
-    <section id="servicos" class="section">
-        <h3>Nossos Serviços</h3>
-        <div class="cards">
-            <div class="card">
-                <img src="imagens/jk 2.PNG" alt="Decoração de festa">
-                <h4>Pedidos de lanches</h4>
-                <p>Faça seu pedido de lanches separadamente para sua comemoração.</p>
-            </div>
-            <div class="card">
-                <img src="imagens/jk 1.PNG" alt="Buffet de festa">
-                <h4>Barraquinhas de lanches</h4>
-                <p>Cardápios variados e deliciosos para todos os gostos.</p>
-            </div>
-            <div class="card">
-                <img src="imagens/jk3.png" alt="Brinquedos infláveis">
-                <h4>Brinquedos & Recreação</h4>
-                <p>Alugue nossos brinquedos e deixe sua festa ainda melhor.</p>
-            </div>
-        </div>
-    </section>
-    <section id="sobre" class="section">
-        <h3>Sobre a JK Festas & Eventos</h3>
-        <div class="sobre-container">
-          <img src="imagens/logo.jpg" alt="Logo da JK Festas & Eventos" class="logo-sobre">
-          <div class="texto-sobre">
-            <p>
-              A <strong>JK Festas & Eventos</strong> nasceu com o propósito de transformar momentos especiais em memórias inesquecíveis. Com anos de experiência no mercado de eventos, oferecemos tudo que você precisa para comemorar com estilo, alegria e segurança.
-            </p>
-            <p>
-              Trabalhamos com aluguel de brinquedos, barraquinhas, lanches personalizados, além de uma equipe dedicada para fazer da sua festa um sucesso!
-            </p>
-          </div>
-        </div>
-      </section>
-      
-    <section id="contato" class="section">
-        <h3>Entre em Contato</h3>
-        <p>Preencha  formulário e retornaremos o mais breve possível!</p>
-      
-        <form class="formulario" onsubmit="return validarFormulario() "id="form">
-          <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
-          <input type="tel" id="telefone" name="telefone" placeholder="Ex: 11999999999" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
-          <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
-          <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required />
-          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
-          <button type="submit" class="btn" value="Enviar" id="button">Enviar Mensagem</button>
-        </form>
-      
-        <p id="mensagem-sucesso" style="display: none; color: green; margin-top: 20px;">Mensagem enviada com sucesso!</p>
-      </section>
-      
-    <footer>
-        <p>&copy; 2025 JK Festas & Eventos. Todos os direitos reservados.</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="contato.js"></script>
-    <script>
-        function alternarTema() {
-          const body = document.body;
-          const header = document.querySelector("header");
-          const nav = document.querySelector("nav");
-          const footer = document.querySelector("footer");
-          const botao = document.querySelector(".botao-tema");
-          document.querySelector('#sobre').classList.toggle('tema-escuro');
+  <section id="servicos" class="section">
+    <h3>Nossos Serviços</h3>
+    <div class="cards">
+      <div class="card">
+        <img src="imagens/jk 2.PNG" alt="Decoração de festa">
+        <h4>Pedidos de lanches</h4>
+        <p>Faça seu pedido de lanches separadamente para sua comemoração.</p>
+      </div>
+      <div class="card">
+        <img src="imagens/jk 1.PNG" alt="Buffet de festa">
+        <h4>Barraquinhas de lanches</h4>
+        <p>Cardápios variados e deliciosos para todos os gostos.</p>
+      </div>
+      <div class="card">
+        <img src="imagens/jk3.png" alt="Brinquedos infláveis">
+        <h4>Brinquedos & Recreação</h4>
+        <p>Alugue nossos brinquedos e deixe sua festa ainda melhor.</p>
+      </div>
+    </div>
+  </section>
+  <section id="sobre" class="section">
+    <h3>Sobre a JK Festas & Eventos</h3>
+    <div class="sobre-container">
+      <img src="imagens/logo.jpg" alt="Logo da JK Festas & Eventos" class="logo-sobre">
+      <div class="texto-sobre">
+        <p>
+          A <strong>JK Festas & Eventos</strong> nasceu com o propósito de transformar momentos especiais em memórias
+          inesquecíveis. Com anos de experiência no mercado de eventos, oferecemos tudo que você precisa para comemorar
+          com estilo, alegria e segurança.
+        </p>
+        <p>
+          Trabalhamos com aluguel de brinquedos, barraquinhas, lanches personalizados, além de uma equipe dedicada para
+          fazer da sua festa um sucesso!
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <section id="feedbacks" class="section">
+    <h3>Feedbacks de Clientes</h3>
+    <p>Veja o que nossos clientes dizem sobre a JK Festas & Eventos!</p>
+
+    <div class="carrossel-feedback">
+      <button class="botao-anterior" onclick="mudarSlide(-1)">&#10094;</button>
+
+      <div class="slide-container">
+        <div class="slide-feedback ativo">
+          <img src="imagens/feedback1.jpg" alt="Feedback 1">
+        </div>
+        <div class="slide-feedback">
+          <img src="imagens/feedback2.jpg" alt="Feedback 2">
+        </div>
+        <div class="slide-feedback">
+          <img src="imagens/feedback3.jpg" alt="Feedback 3">
+        </div>
+      </div>
+
+      <button class="botao-proximo" onclick="mudarSlide(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <section id="contato" class="section">
+    <h3>Entre em Contato</h3>
+    <p>Preencha formulário e retornaremos o mais breve possível!</p>
+
+    <form class="formulario" onsubmit="return validarFormulario() " id="form">
+      <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+      <input type="tel" id="telefone" name="telefone" placeholder="Ex: 11999999999" required
+        oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+      <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
+      <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required />
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+      <button type="submit" class="btn" value="Enviar" id="button">Enviar Mensagem</button>
+    </form>
+
+    <p id="mensagem-sucesso" style="display: none; color: green; margin-top: 20px;">Mensagem enviada com sucesso!</p>
+  </section>
+<footer class="rodape">
+  <div class="rodape-conteudo">
+    <div class="coluna">
+      <h4>Formas de Pagamento</h4>
+      <div class="pagamentos">
+        <img src="imagens/pagamentos/pix.png" alt="Pix" />
+        <img src="imagens/pagamentos/visa.png" alt="Visa" />
+        <img src="imagens/pagamentos/mastercard.png" alt="Mastercard" />
+        <img src="imagens/pagamentos/boleto.png" alt="Boleto" />
+      </div>
+    </div>
+
+    <div class="coluna">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+    </div>
+
+    <div class="coluna">
+      <h4>Contato</h4>
+      <p>Email: contato@jkfestas.com</p>
+      <p>WhatsApp: (71) 9273-2592</p>
+      <p>Salvador - BA</p>
+    </div>
+  </div>
+
+  <div class="rodape-copy">
+    <p>&copy; 2025 JK Festas & Eventos. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="contato.js"></script>
+  <script src="carroselFeebacks.js"></script>
+  <script src="mobile.js"></script>
+  <script>
+    function alternarTema() {
+      const body = document.body;
+      const nav = document.querySelector("nav");
+      const footer = document.querySelector("footer");
+      const botao = document.querySelector(".botao-tema");
+
+      // Alterna as classes de tema escuro
       body.classList.toggle("tema-escuro");
-      header.classList.toggle("tema-escuro");
       nav.classList.toggle("tema-escuro");
-      if (footer) footer.classList.toggle("tema-escuro");
+      footer.classList.toggle("tema-escuro");
+      document.querySelector('#sobre').classList.toggle('tema-escuro');
 
+      // Alterna o ícone do botão
       botao.textContent = body.classList.contains("tema-escuro") ? "☀️" : "🌙";
     }
+   function alternarModalMenu() {
+  const modal = document.getElementById('modalMobile');
+  const estaVisivel = modal.style.display === 'flex';
+
+  if (estaVisivel) {
+    modal.style.display = 'none';
+  } else {
+    modal.style.display = 'flex';
+  }
+}
+document.querySelectorAll('#modalMobile .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('modalMobile').style.display = 'none';
+  });
+});
   </script>
+
 </body>
 
 </html>
