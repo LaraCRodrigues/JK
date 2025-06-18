@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gerenciamento de Pedidos</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="pedidos.css">
+  <link rel="stylesheet" href="script.js">
+ 
+</head>
+  <button class="toggle-menu" aria-label="Abrir menu" aria-expanded="false">
+    <span class="material-icons">menu</span> Menu
+  </button>
+
+  <div class="app-container">
+    <nav class="sidebar" aria-label="Menu principal">
+      <h2>Meu Painel</h2>
+      <ul>
+        <li tabindex="0"><a href="index.html">🏠 Início</a></li>
+        <li tabindex="0" style="font-weight: 700;"><a href="Gerenciamento.html">📦 Gerenciamento</a></li>
+      </ul>
+      <!-- <button class="theme-toggle" type="button">Alternar tema</button> -->
+    </nav>
+
+    <main class="content">
+      <header class="page-header" role="banner">
+        <h1>Pedidos</h1>
+        <p>Festas marcadas e agendadas</p>
+      </header>
+
+      <section class="action-buttons" role="region" aria-label="Ações de pedidos">
+        <button class="btn create" type="button">
+          <span class="material-icons" aria-hidden="true">add_circle</span> Criar pedido
+        </button>
+     
+        
+        <button class="btn view" type="button">
+          <span class="material-icons" aria-hidden="true">visibility</span> Ver pedidos
+        </button>
+      </section>
+
+<!-- Modal de criar pedido -->
+<div class="modal-criar-pedido" id="modalCriarPedido">
+  <div class="conteudo-modal">
+    <span class="fechar-modal" id="fecharModal">&times;</span>
+    <h2>Criar Novo Pedido</h2>
+    
+    <form>
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" placeholder="Descrição do pedido" required />
+
+      <label for="cliente">Selecionar Cliente:</label>
+      <select id="cliente" name="cliente">
+        <option value="">Selecione um cliente</option>
+        <option value="cliente1">Cliente 1</option>
+        <option value="cliente2">Cliente 2</option>
+      </select>
+
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required />
+
+      <button type="submit" class="enviar-pedido">Salvar Pedido</button>
+    </form>
+  </div>
+</div>
+<!-- Modal Remover Pedido -->
+<div class="modal-remover-pedido" id="modalRemoverPedido">
+  <div class="conteudo-modal">
+    <span class="fechar-modal" onclick="fecharModal('modalRemoverPedido')">&times;</span>
+    <h2>Remover Pedido</h2>
+    <p>Tem certeza que deseja remover este pedido?</p>
+    <button class="confirmar-remover">Confirmar</button>
+  </div>
+</div>
+
+<!-- Modal Editar Pedido -->
+<div class="modal-editar-pedido" id="modalEditarPedido">
+  <div class="conteudo-modal">
+    <span class="fechar-modal" onclick="fecharModal('modalEditarPedido')">&times;</span>
+    <h2>Editar Pedido</h2>
+    <form>
+      <label for="editarDescricao">Descrição:</label>
+      <input type="text" id="editarDescricao" name="editarDescricao" required />
+      
+      <label for="editarData">Data:</label>
+      <input type="date" id="editarData" name="editarData" required />
+
+      <button type="submit" class="salvar-edicao">Salvar Alterações</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Ver Pedidos -->
+<div class="modal-ver-pedidos" id="modalVerPedidos">
+  <div class="conteudo-modal">
+    <span class="fechar-modal" onclick="fecharModal('modalVerPedidos')">&times;</span>
+    <h2>Todos os Clientes e Pedidos</h2>
+    <ul class="lista-pedidos-clientes">
+      <li><strong>Cliente 1:</strong> Festa de aniversário - 20/07/2025</li>
+      <li><strong>Cliente 2:</strong> Evento corporativo - 25/07/2025</li>
+      <li><strong>Cliente 3:</strong> Casamento - 28/07/2025</li>
+    </ul>
+  </div>
+</div>
+      <div class="divider" ></div>
+      
+      <section class="orders-list" role="list">
+        <!-- Card pedido -->
+        <article class="order-card" role="listitem" tabindex="0">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/202989da-630a-4863-a668-fb8fddd0692a.png" alt="Foto de perfil" class="profile-pic" loading="lazy" />
+          <div class="order-info">
+            <strong>Nome cliente 1</strong>
+            <span>Data prevista do pedido</span>
+            <span>14-00-2000</span>
+          </div>
+          <span class="material-icons order-arrow" aria-hidden="true">chevron_right</span>
+        </article>
+
+        <article class="order-card" role="listitem" tabindex="0">
+          <img src="https://placehold.co/64x64/png?text=Cliente+1" alt="Foto de perfil" class="profile-pic" loading="lazy" />
+          <div class="order-info">
+            <strong>Nome cliente 1</strong>
+            <span>Data prevista do pedido</span>
+            <span>14-00-2000</span>
+          </div>
+          <span class="material-icons order-arrow" aria-hidden="true">chevron_right</span>
+        </article>
+
+        <article class="order-card" role="listitem" tabindex="0">
+          <img src="https://placehold.co/64x64/png?text=Cliente+1" alt="Foto de perfil" class="profile-pic" loading="lazy" />
+          <div class="order-info">
+            <strong>Nome cliente 1</strong>
+            <span>Data prevista do pedido</span>
+            <span>14-00-2000</span>
+          </div>
+          <span class="material-icons order-arrow" aria-hidden="true">chevron_right</span>
+        </article>
+
+        <article class="order-card" role="listitem" tabindex="0">
+          <img src="https://placehold.co/64x64/png?text=Cliente+1" alt="Foto de perfil" class="profile-pic" loading="lazy" />
+          <div class="order-info">
+            <strong>Nome cliente 1</strong>
+            <span>Data prevista do pedido</span>
+            <span>14-00-2000</span>
+          </div>
+          <span class="material-icons order-arrow" aria-hidden="true">chevron_right</span>
+        </article>
+      </section>
+
+     <div class="modal-detalhes-pedido" id="modalDetalhesPedido">
+  <div class="conteudo-modal">
+    <span class="fechar-modal" onclick="fecharModal('modalDetalhesPedido')">&times;</span>
+    <h2>Detalhes do Pedido</h2>
+
+    <div id="detalhesPedidoContent">
+      <!-- Conteúdo será preenchido dinamicamente com JS -->
+    </div>
+
+    <!-- Ações -->
+    <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+      <button class="btn edit" type="button">
+        <span class="material-icons" aria-hidden="true">edit</span> Editar pedido
+      </button>
+      <button class="btn remove" type="button">
+        <span class="material-icons" aria-hidden="true">delete</span> Remover pedido
+      </button>
+  
+    </div>
+  </div>
+</div>
+    </main>
+  </div>
+
+  <script src="script.js">
+  </script>
+
+</body>
+</html>

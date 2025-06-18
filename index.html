@@ -50,6 +50,28 @@
       </a>
     </div>
   </section>
+<div class="container-btn_chat"> 
+
+  <a href="#">
+        💬 Chat
+  </a>
+
+</div>
+  <!-- Modal de Chat -->
+  <div class="modal-chat" id="modalChat">
+    <div class="modal-header">
+      Chat Online
+      <button id="fecharModal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Olá! Como podemos ajudar?</p>
+    </div>
+    <div class="modal-footer">
+      <input type="text" placeholder="Digite sua mensagem...">
+      <button>Enviar</button>
+    </div>
+  </div>
+
 
   <section id="servicos" class="section">
     <h3>Nossos Serviços</h3>
@@ -167,6 +189,7 @@
   <script src="contato.js"></script>
   <script src="carroselFeebacks.js"></script>
   <script src="mobile.js"></script>
+  <script src="chat.js"></script>
   <script>
     function alternarTema() {
       const body = document.body;
@@ -198,6 +221,8 @@ document.querySelectorAll('#modalMobile .nav-link').forEach(link => {
     document.getElementById('modalMobile').style.display = 'none';
   });
 });
+  
+
   </script>
 
 </body>

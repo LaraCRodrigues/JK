@@ -4,17 +4,10 @@
   margin: 0;
   padding: 0;
 }
-
-body {
-  display: flex;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
-
 .barra-lateral {
   width: 220px;
   height: 200vh;
-  background: linear-gradient(135deg, #6a5acd, #ff69b4);
+    background: linear-gradient(180deg, #3f51b5 0%, #e91e63 100%);
   color: white;
   padding: 20px;
   left: 0;
@@ -42,80 +35,71 @@ body {
   border-radius: 5px;
   transition: background 0.3s;
 }
-
+/* 
 .barra-lateral ul li a:hover {
   background-color: #007bff;
   
+} */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f9f9f9;
+    margin: 0;
+    height: 100vh;
 }
 
-.conteudo_form {
-  margin-left: 50px;
-  padding: 40px;
-  flex: 1;
+
+
+.alterar-tema {
+    background-color: #03a9f4;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.conteudo_form h1 {
-  margin-bottom: 20px;
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
 }
 
-.formulario {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+h1 {
+    color: #2196F3;
 }
 
-.formulario h3 {
-  margin-bottom: 15px;
+.client-message {
+    background-color: #e0e0e0;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.formulario label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
+.client-name {
+    font-weight: bold;
 }
 
-.formulario input, .formulario textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.message-info {
+    color: green;
 }
 
-.formulario button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #6a5acd;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.separacao {
+    margin: 20px 0;
+  margin-top: 100px;
+  }
+  .filtro-mensagens select {
+    margin-top: 100px;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+.filtro-mensagens select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-
-.formulario button:hover {
-  background-color: #8c7cf2;
-}
-
-.lista-alertas {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.alerta {
-  border-left: 5px solid #007bff;
-  padding: 10px;
-  margin-bottom: 15px;
-  background-color: #f9f9f9;
-}
-
-.alerta strong {
-  color: #007bff;
-}
-
 
 /* manupulacao javascript */
 body.claro {
@@ -126,7 +110,7 @@ body.claro {
 
   body.escuro {
     background-color: #121212;
-    color: #f0f0f0;
+    color: #a89d9d;
   }
 
   body.escuro label,

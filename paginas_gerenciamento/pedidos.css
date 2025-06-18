@@ -1,0 +1,519 @@
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /* js modos claro e escuro */
+  body.tema-escuro {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.tema-escuro .order-card {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+body.tema-escuro .order-card:hover {
+  background-color: #3a3a3a;
+}
+
+body.tema-escuro nav.sidebar {
+  background: linear-gradient(180deg, #333 0%, #444 100%);
+}
+
+body.tema-escuro main.content {
+  background-color: #1e1e1e;
+}
+
+body.tema-escuro .btn {
+  filter: brightness(0.9);
+}
+
+body.tema-escuro .conteudo-modal {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+body.tema-escuro .modal-criar-pedido,
+body.tema-escuro .modal-remover-pedido,
+body.tema-escuro .modal-editar-pedido,
+body.tema-escuro .modal-detalhes-pedido {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+  ul a{
+    text-decoration: none ;
+    color: #fff;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  /* modais pedios clientes detalhes */
+
+  .modal-detalhes-pedido {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.conteudo-modal {
+  background: #fff;
+  margin: 8% auto;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* modal create */
+ /* Modal container */
+  .modal-criar-pedido {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* escondido por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .modal-criar-pedido.ativo {
+    display: flex;
+  }
+
+  /* Conteúdo do modal */
+  .conteudo-modal {
+    background: #fff;
+    padding: 32px 28px;
+    border-radius: 16px;
+    max-width: 480px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    animation: surgir 0.3s ease-out;
+  }
+
+  @keyframes surgir {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Botão fechar */
+  .fechar-modal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .fechar-modal:hover {
+    color: #000;
+  }
+
+  /* Título */
+  .conteudo-modal h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: #333;
+  }
+
+  /* Formulário */
+  .conteudo-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .conteudo-modal label {
+    font-weight: 600;
+    color: #444;
+  }
+
+  .conteudo-modal input,
+  .conteudo-modal select {
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .conteudo-modal input:focus,
+  .conteudo-modal select:focus {
+    border-color: #7564d5;
+  }
+
+  .conteudo-modal .enviar-pedido {
+    background-color: #009900;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .conteudo-modal .enviar-pedido:hover {
+    background-color: #006600;
+  }
+/* modais */
+.modal-remover-pedido,
+.modal-editar-pedido,
+.modal-ver-pedidos {
+  display: none;
+  position: fixed;
+  z-index: 19999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.conteudo-modal {
+  background: #fff;
+  margin: 10% auto;
+  padding: 24px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.lista-pedidos-clientes {
+  list-style: none;
+  padding-left: 0;
+}
+.lista-pedidos-clientes li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+  /* Layout geral */
+  .app-container {
+    display: flex;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  /* Sidebar */
+  nav.sidebar {
+    background: linear-gradient(180deg, #7564d5 0%, #e86ec7 100%);
+    color: #fff;
+    min-width: 220px;
+    padding: 32px 16px 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  nav.sidebar h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+  }
+  nav.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  nav.sidebar ul li {
+    cursor: pointer;
+  }
+  nav.sidebar ul li:hover,
+  nav.sidebar ul li:focus {
+    text-decoration: underline;
+  }
+  nav.sidebar button.theme-toggle {
+    background-color: #0771b9;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    width: fit-content;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
+  }
+  nav.sidebar button.theme-toggle:hover,
+  nav.sidebar button.theme-toggle:focus {
+    background-color: #045a90;
+  }
+
+  /* Conteúdo principal */
+  main.content {
+    flex: 1 1 auto;
+    padding: 40px 48px 40px 48px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Título principal */
+  .page-header {
+    max-width: 700px;
+    margin-bottom: 48px;
+  }
+  .page-header h1 {
+    margin: 0 0 8px 0;
+    color: #0066cc;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  .page-header p {
+    margin: 0;
+    color: #0078d7;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  /* Controles dos botões */
+  .action-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s ease;
+    user-select: none;
+    min-width: 140px;
+  }
+  .btn.material-icons {
+    font-size: 18px;
+  }
+  /* Verde - Criar */
+  .btn.create {
+    background-color: #009900;
+  }
+  .btn.create:hover {
+    background-color: #006600;
+  }
+  /* Vermelho - Remover */
+  .btn.remove {
+    background-color: #b24937;
+  }
+  .btn.remove:hover {
+    background-color: #7a2c22;
+  }
+  /* Amarelo - Editar */
+  .btn.edit {
+    background-color: #c4a01d;
+  }
+  .btn.edit:hover {
+    background-color: #7d7013;
+  }
+  /* Rosa/violeta - Ver pedidos */
+  .btn.view {
+    background: linear-gradient(90deg, #8050d5 0%, #fc6fab 100%);
+  }
+  .btn.view:hover {
+    background: linear-gradient(90deg, #512f89 0%, #b04467 100%);
+  }
+
+  /* Linha separadora */
+  div.divider {
+    height: 6px;
+    border-radius: 12px;
+    background: #cfcfcf;
+    margin-bottom: 40px;
+    margin-top: 8px;
+    opacity: 0.6;
+  }
+
+  /* Lista de pedidos - grid responsivo */
+  .orders-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
+    gap: 16px 28px;
+  }
+
+  /* Card pedido */
+  .order-card {
+    background-color: #d2d2d2;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  .order-card:hover,
+  .order-card:focus {
+    background-color: #b9b9b9;
+    outline: none;
+  }
+  .order-card img.profile-pic {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .order-info {
+    flex: 1 1 auto;
+  }
+  .order-info strong {
+    font-weight: 700;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .order-info span {
+    display: block;
+    font-size: 13px;
+    color: #444;
+  }
+  /* Ícone de seta direita */
+  .order-arrow {
+    color: #0074cc;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  /* RESPONSIVO */
+  
+  /* Mobile = 767px */
+  @media (max-width: 767px) {
+    nav.sidebar {
+      position: fixed;
+      left: -260px;
+      top: 0;
+      height: 100vh;
+      width: 260px;
+      padding: 24px 24px 80px 32px;
+      transition: left 0.3s ease;
+      z-index: 10;
+      box-shadow: 2px 0 8px rgb(0 0 0 / 0.15);
+    }
+    nav.sidebar.active {
+      left: 0;
+    }
+    nav.sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    main.content {
+      padding: 24px 16px 40px 16px;
+    }
+    /* Botão hamburguer */
+    button.toggle-menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 30;
+      background: #7564d5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 18px;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.3);
+      transition: background-color 0.3s ease;
+    }
+    button.toggle-menu:hover,
+    button.toggle-menu:focus {
+      background-color: #553db9;
+      outline: none;
+    }
+    /* Ajustar grid para 1 coluna no mobile */
+    .orders-list {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Desktop 768px+ largura normal */
+  @media (min-width: 768px) {
+    button.toggle-menu {
+      display: none;
+    }
+  }
+
+  /* Large Desktop max width centralizado */
+  @media (min-width: 1440px) {
+    main.content {
+      max-width: 1440px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  /* Estilo para o botão de alternar tema */
+  .theme-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 12px;
+  }

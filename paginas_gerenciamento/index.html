@@ -6,6 +6,7 @@
   <title>Dashboard - Início</title>
   <link rel="stylesheet" href="introducao.css">
   <link rel="stylesheet" href="gerenciamento.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
@@ -13,16 +14,22 @@
   <div class="barra-lateral">
     <h2>Meu Painel</h2>
     <ul>
-      <li><a href="introducao.html">🏠 Início</a></li>
+      <li><a href="index.html">🏠 Início</a></li>
       <li><a href="Gerenciamento.html">📦 Gerenciamento</a></li>
     </ul>
-    <button class="botao-tema" id="alternar-tema">Alternar Tema Claro/Escuro</button>
+    <!-- <button class="botao-tema" id="alternar-tema">Alternar Tema Claro/Escuro</button> -->
   </div>
 
   <div class="conteudo">
+ <div class="cabecalho-painel">
+  <div class="texto-cabecalho">
     <h1 class="bem-vindo">Bem-vindo ao seu Painel de Controle</h1>
-    <p class="descricao">Aqui você pode gerenciar seus pedidos, configurar alertas e ajustar as preferências do sistema.</p>
-
+    <p class="descricao">Aqui você pode gerenciar seus pedidos...</p>
+  </div>
+  <button class="botao-notificacao" aria-label="Notificações">
+    <span class="material-icons">notifications</span>
+  </button>
+</div>
     <div class="atalhos">
       <div class="atalho">
         <h4>📋 Ver Pedidos</h4>
@@ -37,13 +44,13 @@
 
   <script>
     
-    const botaoTema = document.getElementById('alternar-tema');
-    const body = document.body;
+    // const botaoTema = document.getElementById('alternar-tema');
+    // const body = document.body;
 
-    botaoTema.addEventListener('click', () => {
-      body.classList.toggle('escuro');
-      body.classList.toggle('claro');
-    });
+    // botaoTema.addEventListener('click', () => {
+    //   body.classList.toggle('escuro');
+    //   body.classList.toggle('claro');
+    // });
   </script>
 </body>
 </html>

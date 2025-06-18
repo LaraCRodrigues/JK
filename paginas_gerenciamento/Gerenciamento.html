@@ -1,84 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sistema de Alertas</title>
-  <link rel="stylesheet" href="gerenciamento.css">
-  <style>
-  
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Painel - Gerenciamento de Pedidos</title>
+    <link rel="stylesheet" href="gerenciamento.css">
+    <link rel="stylesheet" href="introducao.css">
 </head>
-<body class="claro">
-
-  <div class="barra-lateral">
-    <h2>Meu Painel</h2>
-    <ul>
-        <li><a href="index.html">🏠 Início</a></li>
-        <li><a href="Gerenciamento.html">📦 Gerenciamento</a></li>
+<body>
+    <div class="barra-lateral">
+        <h2>Meu Painel</h2>
+         <ul>
+      <li><a href="index.html">🏠 Início</a></li>
+      <li><a href="Gerenciamento.html">📦 Gerenciamento</a></li>
     </ul>
-    <button class="botao-tema" id="alternar-tema">Alternar Tema Claro/Escuro</button>
-  </div>
-
-  <div class="conteudo_form">
-    <h1>Área de Pedidos e Alertas</h1>
-
-    <div class="formulario">
-      <h3>Adicionar novo pedido/alerta</h3>
-      <form id="form-alerta">
-        <label for="titulo">Título:</label>
-        <input type="text" id="titulo" name="titulo" required />
-
-        <label for="descricao">Descrição:</label>
-        <textarea id="descricao" name="descricao" rows="4" required></textarea>
-
-        <label for="data">Data:</label>
-        <input type="date" id="data" name="data" required />
-
-        <label for="hora">Hora:</label>
-        <input type="time" id="hora" name="hora"  />
-
-        <button type="submit">Adicionar</button>
-      </form>
+    <!-- <button class="botao-tema" id="alternar-tema">Alternar Tema Claro/Escuro</button> -->
     </div>
+    
+    <div class="main-content">
+        <h1>Mensagens</h1>
+        <p>Área de conversa com cliente e administrador</p>
+       
+        <div class="filtro-mensagens">
+            <select id="filtro">
+                <option value="todos">Todos</option>
+                <option value="clientes">Mais recentes</option>
+            </select>
+        </div>
+        <div class="client-message highlight">
+            <div class="client-name">Nome cliente 1</div>
+            <div class="message-info"> <a href="MensagensGeren.html">Nova mensagem recebida + 3</a></div>
+        </div>
+        <div class="client-message">
+            <div class="client-name">Nome cliente 2</div>
+            <div class="message-info"> <a href="MensagensGeren.html">Nova mensagem recebida + 3</a></div>
+        </div>
 
-    <div class="lista-alertas" id="lista-alertas">
-      <h3>Alertas Registrados</h3>
-      <!-- Os alertas adicionados vão aparecer aqui -->
+       
+        <div class="separacao">
+          
+        <h1>Pedidos</h1>
+        <p>Festas marcadas e agendadas</p>
+        <div class="client-message highlight">
+            <div class="client-name">Sem Pedidos  </div>
+            <div class="message-info"> <a href="pedidos.html">Nenhum pedido...</a></div>
+        </div>
+     
+        </div>
     </div>
-  </div>
-
+     
   <script>
-    const form = document.getElementById('form-alerta');
-    const lista = document.getElementById('lista-alertas');
+    
     const botaoTema = document.getElementById('alternar-tema');
     const body = document.body;
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const titulo = document.getElementById('titulo').value;
-      const descricao = document.getElementById('descricao').value;
-      const data = document.getElementById('data').value;
-      const hora = document.getElementById('hora').value;
-
-      const novoAlerta = document.createElement('div');
-      novoAlerta.classList.add('alerta');
-      novoAlerta.innerHTML = `
-        <strong>${titulo}</strong><br>
-        ${descricao}<br>
-        📅 ${data} ⏰ ${hora}
-      `;
-
-      lista.appendChild(novoAlerta);
-      form.reset();
-    });
 
     botaoTema.addEventListener('click', () => {
       body.classList.toggle('escuro');
       body.classList.toggle('claro');
     });
   </script>
-
 </body>
 </html>

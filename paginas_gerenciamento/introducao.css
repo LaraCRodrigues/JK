@@ -1,5 +1,36 @@
+.cabecalho-painel {
+  display: flex;
+  justify-content: space-between; /* Um vai para a esquerda, o outro para a direita */
+  align-items: flex-start;
+  flex-wrap: wrap; /* Permite quebra no mobile */
+  gap: 16px;
+  margin-bottom: 32px;
+}
 
+.texto-cabecalho {
+  flex: 1;
+}
 
+.botao-notificacao {
+  background-color: #0078d7;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.botao-notificacao:hover {
+  background-color: #005fa3;
+}
+.botao-notificacao {
+  margin-left: 124px; /* Afasta horizontalmente do texto */
+}
   .bem-vindo {
     font-size: 28px;
     margin-bottom: 10px;

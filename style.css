@@ -10,8 +10,96 @@ body {
   transition: color 0.4s ease, background-color 0.4s ease;
 
 }
-/* Estilo do header */
+ .container-btn_chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
 
+    .container-btn_chat a {
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .container-btn_chat a:hover {
+      background-color: #0056b3;
+    }
+
+    /* modal chat */
+
+    
+    /* Modal */
+    .modal-chat {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1001;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 10px;
+      height: 150px;
+      overflow-y: auto;
+      font-size: 14px;
+      background-color: #f9f9f9;
+    }
+
+    .modal-footer {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    .modal-footer input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .modal-footer button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .modal-footer button:hover {
+      background-color: #0056b3;
+    }
 /* Estilo do menu de navegação */
 nav {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
